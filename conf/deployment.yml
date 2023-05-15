@@ -14,17 +14,6 @@ environments:
   default:
     workflows:
       #######################################################################################
-      #   Example workflow for integration tests                                            #
-      #######################################################################################
-      - name: "myproject-sample-tests"
-        tasks:
-          - task_key: "main"
-            <<: *basic-static-cluster
-            spark_python_task:
-                python_file: "file://tests/entrypoint.py"
-                # this call supports all standard pytest arguments
-                parameters: ["file:fuse://tests/integration", "--cov=myproject"]
-      #######################################################################################
       # this is an example job with single ETL task based on 2.1 API and wheel_task format #
       ######################################################################################
       - name: "myproject-sample-etl"
@@ -68,4 +57,3 @@ environments:
             job_cluster_key: "default"
             notebook_task:
               notebook_path: "/Repos/Staging/myproject/notebooks/sample_notebook"
-
